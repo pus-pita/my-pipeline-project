@@ -3,14 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Maven dependencies
+      - echo Installing dependencies for testing
+      - cd myapp
       - mvn install
   build:
     commands:
       - echo Running Unit Tests
+      - cd myapp
       - mvn test
 
 artifacts:
   files:
-    - target/surefire-reports/*.xml
-    - target/surefire-reports/*.txt
+    - myapp/target/surefire-reports/*.xml
+    - myapp/target/surefire-reports/*.txt
