@@ -3,17 +3,14 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing dependencies
+      - echo Installing Maven dependencies
       - mvn install
   build:
-    commands:
-      - echo Building the project
-      - mvn package
-  post_build:
     commands:
       - echo Running Unit Tests
       - mvn test
 
 artifacts:
   files:
-    - target/*.jar
+    - target/surefire-reports/*.xml
+    - target/surefire-reports/*.txt
